@@ -1,0 +1,45 @@
+{
+  "completed": [
+    "arr_tp_1",
+    "arr_tp_3",
+    "arr_tp_5",
+    "arr_tp_4",
+    "arr_tp_2",
+    "arr_tp_6",
+    "arr_tp_7",
+    "arr_tp_8",
+    "str_tp_1",
+    "str_tp_2",
+    "str_tp_2b",
+    "arr_sw_1",
+    "arr_sw_2b",
+    "arr_sw_3",
+    "arr_sw_4"
+  ],
+  "notes": {
+    "arr_tp_1": "Used the two pointer approach as the array was sorted.\nUse two pointer approach to find: pairs, subarrays, or patterns in linear structures like arrays, strings, or linked lists\n\nUse it for:\nSorted Arrays: Finding target sums or comparisons where order helps you decide which pointer to move.\n\nOpposite Ends (Converging): Checking for palindromes or reversing a string/array by placing pointers at the start and end and moving inward.\n\nSame Direction (Parallel): Filtering elements, removing duplicates, or managing a sliding window.\n\nFast and Slow Pointers: Detecting cycles (like Floyd’s Tortoise and Hare) or finding the middle node in a linked list",
+    "arr_tp_3": "Fast and slow pointers technique",
+    "arr_tp_5": "we have used the two pointer approach. Now we place one pointer at start and one at end by this we are always starting with max width and when we move the pointer we are always decreasing the width so the maximize the area there is only one option that we find significantly larger height.\nNow why we move shorter one: see suppose index left have smaller num and right have the larger one now we move right then what are the cases : case 1 right is again greater in this case min will remain left only . In this case height remains constant and width dec and hence overall area decreases. Now case 2, righ is smaller in this case width and height both dec and hence area will dec and this is the reason why we choose the smaller index for moving forward.",
+    "arr_tp_4": "Approach: sort the array and then apply twoSum approach to find the target. Now here this question stated that there should not be any duplicate values so to ensure it we need three checks one for i, other for left and last one for right. for i: i>o && nums[i]==nums[i-1] continue;\nfor left: while(left<right && nums[left]==nums[left-1]) left++\nfor right : while(left<right && nums[right]==nums[right-1]) right--;\n\nAlso remember to move left and right pointers when sum == target\n",
+    "arr_tp_2": "Approach: simply take two pointers left = 0 and then for(right = 1; right<nums.length; right++) { if(nums[left]!=nums[right]) left++ nums[left] = nums[right] } return left+1;",
+    "arr_tp_6": "The brute force approach is using 3 loops. Now the optimal solution is adding one or two lines of code in the optimal sol of the 3sum now what changes is we simply compare the diff of currentSum and closestSum with the target if it is less than closestSum = currentSum rest all is same as that of the 3sum.\n",
+    "arr_tp_7": "Simple approach for 3sum we did 2sum so similarly for 4sum we do 3sum only thing to keep in mind is for duplicate thing in second loop do j>i+1 && nums[j]==nums[j-1] continue rest everything is same as 2and3sum.\n",
+    "arr_tp_8": "approach: water level = min(left-max-wall , right-max-wall) - height[i]. The logic is for water to get trapped we need walls on both side and the wall which will be sorter will decide how much will store and we substact the current index height casue that's space has been already taken by the block.\n\nsol1: this is kinda brute force . We make two arrays leftMax and rightMax for getting max of the left side and right side of the current index. After this we simply loop through the height array and apply the formula water[i] = max(0, min(leftmax,rightmax)-height). We did the max(0,...) cause sometimes this result might be zero that means we are trapping negative water which is indirectly 0 so we did this ( e.g. test case : [0,1,0,2] )\n\nsol2: the two pointers approach; we take two pointers left and right also define the leftmax and rightmax now if(height[left]<=height[right] { if(height[left]> leftMax){ leftmax=height[left]}else{ans+=leftMax-height[left];}}else{do same for right}.",
+    "str_tp_1": "two approach: 1. use stringbuilder and list and all and compare \n2. use two pointer left and right if charatleft != charatright return false.\nOne thing that is used in both the sol is !Character.isLetterOrDigit(char ch) ( this helps to avoid anything which is not a letter or digit .)\nFor lowering the string either lower the whole string that is String temp = s.toLowerCase();\nor want to do char by char use Character.toLowerCase() ",
+    "str_tp_2b": "approach: take two pointers if char at both the pointers are same simply move both the pointers inward now if there is a mismatch simply call the isPalindrome(string s , int left , int right) for two cases either the string is palindrome if we skip left (i.e., left+1) or we skip the right (i.e., right-1) if anyone of them is true the string can be palindrome otherwise it can't.",
+    "arr_sw_2b": "Approach: take two pointers for window now get the sum of the current window if sum<target expand the window but if sum>>= target compare the current length with the minLength if length<minLength then minLength = length after that do sum-=nums[left] ( this will be a while loop that is while(sum > = target ) { //compare the length; sum-=nums[left] left++} right+ + ; \nNow what's the logic of this while loop: see if the sum is greater than or equal to target we need to shrink the window now when we shrink we don't need to recompute the whole window again it is simple either it will be equal , smaller or greater than target so if it is greater or equal we simply keep substracting the left side and if it is smaller we have done right+ + as soon as that loop's condition don't match (i.e., we are expanding that window ).",
+    "arr_sw_3": "approach: have two pointers keep expanding the window if product is less than k and do count+=right-left+1; and if product is greater or equal to k keep shrinking the window by doing multi = multi/nums[left] and after this while loop do count+=right-left+1 , right++; \nNote: for k<=1 return 0 otherwise the line multi = multi/nums[left] would give index out of bound error.",
+    "arr_sw_4": "There are two approach one which u have currently implemented another one is using dequeue so come back once u learn it."
+  },
+  "bookmarks": [
+    "arr_tp_4",
+    "arr_tp_2",
+    "arr_tp_6",
+    "arr_tp_7",
+    "arr_tp_8",
+    "str_tp_2b",
+    "arr_sw_2b",
+    "arr_sw_3"
+  ],
+  "lastUpdated": "2026-08-27T10:47:27.926Z"
+}
